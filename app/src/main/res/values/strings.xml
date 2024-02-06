@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GoodDriver</string>
+    <string name="curr_location">현재 위치: %s</string>
+</resources>

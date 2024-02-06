@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <FrameLayout
+            android:id="@+id/tmapViewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!-- Your map content goes here -->
+        </FrameLayout>
+
+        <include
+            android:id="@+id/bottom_sheet"
+            layout="@layout/bottom_sheet_layout"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
+        <include
+            android:id="@+id/healthViewLayout"
+            layout="@layout/health_view_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btnBucket"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="20dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnBucket"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            app:layout_anchor="@id/tmapViewContainer"
+            app:layout_anchorGravity="center_vertical|end"
+            android:elevation="10dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnZoomIn"
+                android:layout_width="51dp"
+                android:layout_height="47dp"
+                android:background="@android:color/transparent"
+                android:foreground="@drawable/img_btn_zoom_in"
+                app:layout_constraintBottom_toTopOf="@+id/btnZoomOut"
+                app:layout_constraintEnd_toEndOf="@id/btnBucket"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnZoomOut"
+                android:layout_width="51dp"
+                android:layout_height="47dp"
+                android:background="@android:color/transparent"
+                android:foreground="@drawable/img_btn_zoom_out"
+                app:layout_constraintBottom_toTopOf="@+id/btnCurr"
+                app:layout_constraintEnd_toEndOf="@id/btnBucket"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCurr"
+                android:layout_width="51dp"
+                android:layout_height="47dp"
+                android:background="@android:color/transparent"
+                android:foreground="@drawable/btn_curr"
+                app:layout_constraintBottom_toBottomOf="@+id/btnBucket"
+                app:layout_constraintEnd_toEndOf="@id/btnBucket"
+                />
+
+            <!-- 중앙 상단에 health_view_layout 추가 -->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
